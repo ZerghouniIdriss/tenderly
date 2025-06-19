@@ -1,0 +1,219 @@
+h2 {
+  color: #4a148c; // Distinct deep purple color for Knowledge Hub
+  margin-bottom: 15px;
+}
+
+p {
+    margin-bottom: 20px;
+    font-size: 1.05em;
+    color: #333;
+}
+
+.hub-sections {
+  display: flex;
+  flex-wrap: wrap; // Allow wrapping on smaller screens
+  gap: 25px; // Increased gap
+  margin-top: 25px; // Increased margin
+}
+
+.hub-section {
+  flex: 1; // Each section takes equal width
+  min-width: 300px; // Minimum width before wrapping
+  padding: 25px; // Increased padding
+  border: 1px solid #d1c4e9; // Lighter purple border
+  border-radius: 8px; // More rounded corners
+  background-color: #f3e5f5; // Very light purple background
+
+  h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #6a1b9a; // Darker purple for section titles
+    font-size: 1.3em;
+  }
+
+  p { // Paragraphs within sections
+    font-size: 0.95em;
+    color: #424242; // Darker grey text
+    line-height: 1.6;
+  }
+}
+
+/* Prompt Management Specific Styles */
+.prompt-management {
+  h4 { // Sub-headings for Add/Edit form and List
+    font-size: 1.15em;
+    color: #7b1fa2; // Slightly lighter purple for sub-headings
+    margin-top: 20px;
+    margin-bottom: 10px;
+    &:first-child {
+      margin-top: 0; // No top margin for the very first h4 in this section
+    }
+  }
+
+  .prompt-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px; // Spacing between form elements
+    margin-bottom: 25px;
+    padding: 20px;
+    border: 1px dashed #ab47bc; // Dashed purple border for form
+    border-radius: 6px;
+    background-color: #fafafa; // Slightly off-white for form background
+
+    label {
+      font-weight: bold;
+      margin-bottom: 4px;
+      display: block;
+      font-size: 0.9em;
+      color: #555;
+    }
+
+    input[type="text"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px; // More padding
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      font-size: 1em;
+    }
+
+    textarea {
+      min-height: 120px; // Taller textarea
+      resize: vertical;
+    }
+
+    .validation-error {
+        color: red;
+        font-size: 0.85em;
+        margin-top: 3px;
+    }
+
+    .form-actions {
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    button {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.2s ease;
+
+      &[type="submit"] {
+        background-color: #4caf50; // Green for add/save
+        color: white;
+        &:disabled {
+            background-color: #a5d6a7;
+            cursor: not-allowed;
+        }
+        &:hover:not(:disabled) {
+            background-color: #388e3c;
+        }
+      }
+      &[type="button"] { // Cancel button
+        background-color: #f44336; // Red for cancel/delete
+        color: white;
+         &:hover {
+            background-color: #d32f2f;
+        }
+      }
+    }
+  }
+
+  .prompt-list {
+    list-style-type: none;
+    padding: 0;
+
+    li {
+      padding: 15px;
+      border: 1px solid #e0e0e0; // Lighter border for list items
+      border-radius: 6px;
+      margin-bottom: 12px;
+      background-color: #fff;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      transition: box-shadow 0.2s ease;
+
+      &:hover {
+        box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+      }
+
+      &.editing {
+        background-color: #e3f2fd; // Light blue when editing
+        border-left: 5px solid #2196f3; // Blue left border
+      }
+
+      h5 {
+        margin-top: 0;
+        margin-bottom: 8px;
+        color: #3f51b5; // Indigo for prompt title
+        font-size: 1.1em;
+      }
+
+      .category-badge {
+        font-size: 0.75em;
+        background-color: #e0e0e0; // Grey badge
+        color: #333;
+        padding: 3px 7px;
+        border-radius: 10px; // Pill-shaped badge
+        margin-left: 8px;
+        font-weight: normal;
+      }
+
+      .prompt-text-display {
+        white-space: pre-wrap;
+        margin-bottom: 10px;
+        font-size: 0.95em;
+        color: #424242;
+        max-height: 100px; // Limit height and allow scroll if needed
+        overflow-y: auto;
+      }
+
+      .tags-display {
+        font-size: 0.85em;
+        margin-bottom: 10px;
+        color: #666;
+        strong { color: #444; }
+      }
+
+      small {
+        color: #888; // Lighter color for dates
+        display: block;
+        margin-bottom: 12px;
+        font-size: 0.8em;
+      }
+
+      .prompt-actions {
+        display: flex;
+        gap: 8px;
+        button {
+          font-size: 0.85em;
+          padding: 4px 8px;
+          border: 1px solid transparent;
+          border-radius: 3px;
+          cursor: pointer;
+
+          &:nth-child(1) { // Edit button
+            background-color: #ffc107; // Amber
+            color: #333;
+             &:hover { background-color: #ffa000; }
+          }
+          &:nth-child(2) { // Delete button
+            background-color: #ef5350; // Softer Red
+            color: white;
+             &:hover { background-color: #d32f2f; }
+          }
+        }
+      }
+    }
+     p { // For "No prompts" message
+        color: #666;
+        font-style: italic;
+        padding: 10px 0; // Padding for the message itself
+    }
+  }
+}

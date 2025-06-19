@@ -1,0 +1,26 @@
+<!-- Title for the module page itself - moduleInfo.name is not translated by ngx-translate here -->
+<h2>{{ moduleInfo?.name || ('ANALYSIS.MODULE_TITLE' | translate) }}</h2>
+<p *ngIf="moduleInfo">ID: {{ moduleInfo.id }} | Status: {{ moduleInfo.active ? ('DASHBOARD.MODULE_STATUS_ACTIVE' | translate) : ('DASHBOARD.MODULE_STATUS_INACTIVE' | translate) }}</p>
+<p *ngIf="!moduleInfo && moduleId">Module '{{ moduleId }}' is not registered or found in ModuleLoaderService.</p>
+
+<hr>
+
+<div class="analysis-upload">
+  <h3>{{ 'ANALYSIS.UPLOAD.TITLE' | translate }}</h3>
+  <p>{{ 'ANALYSIS.UPLOAD.SUPPORTED_FORMATS_LABEL' | translate }}: PDF, DOCX, JPG, PNG</p>
+  <input type="file" #fileUpload (change)="onFileSelected($event)">
+  <button (click)="triggerFileUpload()" [disabled]="!selectedFileName">{{ 'ANALYSIS.UPLOAD.UPLOAD_BUTTON' | translate }}</button>
+  <p *ngIf="selectedFileName">{{ 'ANALYSIS.UPLOAD.SELECTED_FILE_LABEL' | translate }}: {{ selectedFileName }}</p>
+</div>
+
+<div class="analysis-results">
+  <h3>{{ 'ANALYSIS.RESULTS.TITLE' | translate }}</h3>
+  <p>{{ 'ANALYSIS.RESULTS.EMPTY_MESSAGE' | translate }}</p>
+  <!-- Actual analysis results would go here -->
+</div>
+
+<div class="analysis-error" *ngIf="isErrorState">
+  <h3>{{ 'ANALYSIS.ERROR.TITLE' | translate }}</h3>
+  <p>{{ 'ANALYSIS.ERROR.SAMPLE_MESSAGE' | translate }}</p>
+  <button (click)="retryAnalysis()">{{ 'ANALYSIS.ERROR.RETRY_BUTTON' | translate }}</button>
+</div>

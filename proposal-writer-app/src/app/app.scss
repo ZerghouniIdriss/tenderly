@@ -1,0 +1,78 @@
+header {
+  background-color: #f0f0f0;
+  padding: 20px;
+  text-align: center;
+}
+
+header nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #333;
+}
+
+header nav a:hover {
+  color: #007bff;
+}
+
+main {
+  padding: 20px;
+  min-height: calc(100vh - 180px); /* Adjust based on header/footer height */
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Language Switcher Styles */
+.header-controls {
+  display: flex;
+  justify-content: flex-end; /* Positions switcher to the right */
+  padding: 0 20px; /* Align with header padding or adjust as needed */
+  margin-bottom: 10px; /* Space between switcher and nav */
+}
+
+.language-switcher {
+  display: inline-block; /* Or flex, depending on desired layout within header-controls */
+
+  button {
+    padding: 5px 10px;
+    margin-left: 5px; /* Use margin-left if buttons are to the right of each other */
+    cursor: pointer;
+    border: 1px solid #ccc;
+    background-color: #f0f0f0;
+    font-size: 0.9em;
+    border-radius: 3px;
+
+    &.active {
+      background-color: #007bff;
+      color: white;
+      border-color: #007bff;
+    }
+
+    &:hover:not(.active) {
+      background-color: #e0e0e0;
+    }
+  }
+}
+
+/* Adjust header to accommodate switcher if needed, e.g. if text-align: center is an issue */
+header {
+  display: flex; /* Helps in positioning items in a row */
+  flex-direction: column; /* Stack title, controls, nav vertically */
+  align-items: center; /* Center items horizontally */
+  /* text-align: center; */ /* Keep this if you want h1 centered, or remove if flex alignment is enough */
+}
+
+header h1 {
+  margin-bottom: 10px; /* Space between title and controls/nav */
+}
+
+header nav {
+  margin-top: 10px; /* Ensure nav is below the switcher */
+}

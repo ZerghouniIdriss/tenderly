@@ -1,0 +1,161 @@
+{
+  "APP_TITLE": "Proposal Writer App",
+  "NAV": {
+    "DASHBOARD": "Dashboard",
+    "SETTINGS": "Settings"
+  },
+  "DASHBOARD": {
+    "TITLE": "Dashboard - Available Modules",
+    "GREETING": "Welcome to the Dashboard!",
+    "MODULE_STATUS_ACTIVE": "Status: Active",
+    "MODULE_STATUS_INACTIVE": "Status: Inactive",
+    "MODULE_CLICK_TO_OPEN": "Click to open",
+    "MODULE_INACTIVE_PROMPT": "Enable in Settings to use.",
+    "NO_MODULES_DISPLAY": "No modules are currently registered or available for display."
+  },
+  "SETTINGS": {
+    "TITLE": "Admin Settings - Module Configuration",
+    "NO_MODULES": "No modules found or loaded. This might indicate an issue with ModuleLoaderService initialization or module registration.",
+    "MODULE_LABEL_PREFIX": ""
+  },
+  "OPPORTUNITIES": {
+    "MODULE_TITLE": "Opportunities Management",
+    "FILTERS": {
+      "TITLE": "Filters",
+      "SEARCH_PLACEHOLDER": "Search opportunities...",
+      "STATUS_ALL": "All Statuses",
+      "STATUS_OPEN": "Open",
+      "STATUS_WON": "Won",
+      "STATUS_LOST": "Lost",
+      "APPLY_BUTTON": "Apply"
+    },
+    "ACTIONS": {
+      "TITLE": "Actions",
+      "EXPORT_CSV": "Export to CSV",
+      "EXPORT_PDF": "Export to PDF"
+    },
+    "NOTIFICATIONS": {
+      "TITLE": "Notifications",
+      "SAMPLE_NOTIFICATION": "Sample Notification: Opportunity XYZ has been updated."
+    },
+    "LIST": {
+      "TITLE": "Opportunity List",
+      "EMPTY_MESSAGE": "No opportunities to display yet. Start by creating one!"
+    }
+  },
+  "ANALYSIS": {
+    "MODULE_TITLE": "Document Analysis",
+    "UPLOAD": {
+      "TITLE": "Upload Document for Analysis",
+      "SUPPORTED_FORMATS_LABEL": "Supported formats",
+      "UPLOAD_BUTTON": "Upload",
+      "SELECTED_FILE_LABEL": "Selected file"
+    },
+    "ERROR": {
+      "TITLE": "Analysis Error",
+      "SAMPLE_MESSAGE": "An error occurred during the analysis of the document. Please try again.",
+      "RETRY_BUTTON": "Retry Analysis"
+    },
+    "RESULTS": {
+      "TITLE": "Analysis Results",
+      "EMPTY_MESSAGE": "Upload a document to see analysis results here."
+    }
+  },
+  "PROPOSALS": {
+    "MODULE_TITLE": "Proposal Authoring",
+    "EDITOR": {
+      "TITLE": "Proposal Content",
+      "PLACEHOLDER": "Start writing your proposal here..."
+    },
+    "SECTIONS": {
+      "TITLE": "Proposal Sections",
+      "PLACEHOLDER_TEXT": "Manage proposal structure and sections.",
+      "MANAGE_BUTTON": "Manage Sections"
+    },
+    "CONTENT_LIBRARY": {
+      "TITLE": "Content Library (Reusable Sections)",
+      "SEARCH_PLACEHOLDER": "Search library...",
+      "NO_ITEMS": "No items found or matching your search.",
+      "INSERT_BUTTON": "Insert Selected Content",
+      "ITEM_INSERTED_ALERT": "'{{title}}' inserted into proposal."
+    },
+    "VERSION_CONTROL": {
+      "TITLE": "Version Control",
+      "SAVE_BUTTON": "Save New Version",
+      "COMPARE_BUTTON": "Compare Selected",
+      "HISTORY_TITLE": "Version History",
+      "VERSION_PREFIX": "V",
+      "NO_VERSIONS": "No versions saved yet.",
+      "DIFF_TITLE": "Comparison / Diff View",
+      "SAVE_COMMENT_PROMPT": "Enter a short comment for this version (optional):",
+      "VERSION_SAVED_ALERT": "Version {{id}} saved.",
+      "SELECT_TWO_VERSIONS_ALERT": "Please select exactly two versions to compare."
+    },
+    "EXPORT": {
+      "TITLE": "Export Proposal",
+      "EXPORT_PDF_BUTTON": "Export to PDF",
+      "EXPORT_WORD_BUTTON": "Export to Word (.docx)",
+      "EXPORTING_PDF_ALERT": "Preparing PDF export for '{{currentProposalTitle}}'. (Mock action)",
+      "EXPORTING_WORD_ALERT": "Preparing Word (.docx) export for '{{currentProposalTitle}}'. (Mock action)"
+    }
+  },
+  "SUBMISSIONS": {
+    "MODULE_TITLE": "Submission Tracking",
+    "TRACKING": {
+      "TITLE": "Track Submission Status",
+      "SUBMISSION_ID_PLACEHOLDER": "Submission ID / Name",
+      "STATUS_SELECT_PLACEHOLDER": "Select Status...",
+      "STATUS_DRAFT": "Draft",
+      "STATUS_SUBMITTED": "Submitted",
+      "STATUS_UNDER_REVIEW": "Under Review",
+      "STATUS_AWARDED": "Awarded",
+      "STATUS_REJECTED": "Rejected",
+      "NOTES_PLACEHOLDER": "Notes...",
+      "SAVE_BUTTON": "Save Status"
+    },
+    "LIST": {
+      "TITLE": "Submissions Overview",
+      "EMPTY_MESSAGE": "No submissions being tracked yet."
+    },
+    "DOCUMENTS": {
+      "TITLE": "Submission Documents",
+      "PLACEHOLDER_TEXT": "Manage documents related to this submission (e.g., final proposal, award letter).",
+      "UPLOAD_BUTTON": "Upload Documents"
+    }
+  },
+  "KNOWLEDGE_HUB": {
+    "MODULE_TITLE": "Knowledge Hub",
+    "WELCOME_MESSAGE": "Welcome to the central place for all your knowledge assets and AI prompting tools!",
+    "PROMPT_MANAGEMENT": {
+        "TITLE": "Prompt Management",
+        "DESCRIPTION": "Manage, track, and collaborate on AI prompts across the enterprise.",
+        "ADD_PROMPT_TITLE": "Add New Prompt",
+        "EDIT_PROMPT_TITLE": "Edit Prompt",
+        "FIELD_TITLE": "Title",
+        "FIELD_CATEGORY": "Category",
+        "FIELD_TEXT": "Prompt Text",
+        "FIELD_TAGS": "Tags (comma-separated)",
+        "TAGS_PLACEHOLDER": "e.g., marketing, email, summary",
+        "ADD_BUTTON": "Add Prompt",
+        "SAVE_CHANGES_BUTTON": "Save Changes",
+        "CANCEL_BUTTON": "Cancel",
+        "LIST_TITLE": "Saved Prompts",
+        "EDIT_BUTTON": "Edit",
+        "DELETE_BUTTON": "Delete",
+        "NO_PROMPTS": "No prompts saved yet. Add one above!",
+        "TAGS_LABEL": "Tags",
+        "CREATED_AT": "Created",
+        "UPDATED_AT": "Updated",
+        "VALIDATION_TITLE_REQUIRED": "Title is required.",
+        "VALIDATION_CATEGORY_REQUIRED": "Category is required.",
+        "VALIDATION_TEXT_REQUIRED": "Prompt text is required.",
+        "VALIDATION_ERROR_MISSING_FIELDS": "Please fill in all required fields (Title, Category, Text).",
+        "CONFIRM_DELETE_PROMPT": "Are you sure you want to delete this prompt?"
+    },
+    "KNOWLEDGE_ASSETS": {
+        "TITLE": "Knowledge Assets",
+        "DESCRIPTION": "Access and manage your organization's knowledge base."
+    }
+  },
+  "MODULES": {}
+}

@@ -1,0 +1,43 @@
+<h2>{{ moduleInfo?.name || ('SUBMISSIONS.MODULE_TITLE' | translate) }}</h2>
+<p *ngIf="moduleInfo">ID: {{ moduleInfo.id }} | Status: {{ moduleInfo.active ? ('DASHBOARD.MODULE_STATUS_ACTIVE' | translate) : ('DASHBOARD.MODULE_STATUS_INACTIVE' | translate) }}</p>
+<p *ngIf="!moduleInfo && moduleId">Module '{{ moduleId }}' is not registered or found in ModuleLoaderService.</p>
+
+<hr>
+
+<div class="submission-tracking">
+  <h3>{{ 'SUBMISSIONS.TRACKING.TITLE' | translate }}</h3>
+  <div class="submission-form">
+    <input type="text" [placeholder]="'SUBMISSIONS.TRACKING.SUBMISSION_ID_PLACEHOLDER' | translate">
+    <select>
+      <option value="" disabled selected>{{ 'SUBMISSIONS.TRACKING.STATUS_SELECT_PLACEHOLDER' | translate }}</option>
+      <option value="draft">{{ 'SUBMISSIONS.TRACKING.STATUS_DRAFT' | translate }}</option>
+      <option value="submitted">{{ 'SUBMISSIONS.TRACKING.STATUS_SUBMITTED' | translate }}</option>
+      <option value="under_review">{{ 'SUBMISSIONS.TRACKING.STATUS_UNDER_REVIEW' | translate }}</option>
+      <option value="awarded">{{ 'SUBMISSIONS.TRACKING.STATUS_AWARDED' | translate }}</option>
+      <option value="rejected">{{ 'SUBMISSIONS.TRACKING.STATUS_REJECTED' | translate }}</option>
+    </select>
+    <input type="date" title="Submission Date">
+    <textarea [placeholder]="'SUBMISSIONS.TRACKING.NOTES_PLACEHOLDER' | translate"></textarea>
+    <button (click)="saveSubmission()">{{ 'SUBMISSIONS.TRACKING.SAVE_BUTTON' | translate }}</button>
+  </div>
+</div>
+
+<div class="submission-list">
+  <h3>{{ 'SUBMISSIONS.LIST.TITLE' | translate }}</h3>
+  <p>{{ 'SUBMISSIONS.LIST.EMPTY_MESSAGE' | translate }}</p>
+  <!-- Actual list of submissions would go here -->
+</div>
+
+<div class="submission-documents">
+  <h3>{{ 'SUBMISSIONS.DOCUMENTS.TITLE' | translate }}</h3>
+  <p>{{ 'SUBMISSIONS.DOCUMENTS.PLACEHOLDER_TEXT' | translate }}</p>
+  <input type="file" multiple (change)="onDocumentsSelected($event)">
+  <button (click)="uploadSubmissionDocuments()">{{ 'SUBMISSIONS.DOCUMENTS.UPLOAD_BUTTON' | translate }}</button>
+  <!-- Placeholder for list of uploaded documents -->
+  <div *ngIf="selectedDocuments && selectedDocuments.length > 0" class="selected-documents-list">
+    <h4>{{ 'Selected documents to upload:' | translate }}</h4>
+    <ul>
+        <li *ngFor="let doc of selectedDocuments">{{ doc.name }}</li>
+    </ul>
+  </div>
+</div>

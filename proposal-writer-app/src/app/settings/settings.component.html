@@ -1,0 +1,13 @@
+<h2>{{ 'SETTINGS.TITLE' | translate }}</h2>
+<div *ngIf="modules.length === 0">
+  <p>{{ 'SETTINGS.NO_MODULES' | translate }}</p>
+</div>
+<form *ngIf="modules.length > 0">
+  <div *ngFor="let module of modules" class="module-toggle">
+    <label>
+      <input type="checkbox" [checked]="module.active" (change)="onModuleToggle(module, $event)">
+      <!-- Module names are NOT translated via ngx-translate in this iteration -->
+      {{ module.name }} (ID: {{ module.id }}) - {{ 'DASHBOARD.MODULE_STATUS_' + (module.active ? 'ACTIVE' : 'INACTIVE') | translate }}
+    </label>
+  </div>
+</form>

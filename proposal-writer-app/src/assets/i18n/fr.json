@@ -1,0 +1,161 @@
+{
+  "APP_TITLE": "App de Rédaction de Propositions",
+  "NAV": {
+    "DASHBOARD": "Tableau de Bord",
+    "SETTINGS": "Paramètres"
+  },
+  "DASHBOARD": {
+    "TITLE": "Tableau de Bord - Modules Disponibles",
+    "GREETING": "Bienvenue au Tableau de Bord!",
+    "MODULE_STATUS_ACTIVE": "Statut: Actif",
+    "MODULE_STATUS_INACTIVE": "Statut: Inactif",
+    "MODULE_CLICK_TO_OPEN": "Cliquez pour ouvrir",
+    "MODULE_INACTIVE_PROMPT": "Activer dans Paramètres pour utiliser.",
+    "NO_MODULES_DISPLAY": "Aucun module n'est actuellement enregistré ou disponible pour l'affichage."
+  },
+  "SETTINGS": {
+    "TITLE": "Paramètres d'Administration - Configuration des Modules",
+    "NO_MODULES": "Aucun module trouvé ou chargé. Cela pourrait indiquer un problème avec l'initialisation de ModuleLoaderService ou l'enregistrement des modules.",
+    "MODULE_LABEL_PREFIX": ""
+  },
+  "OPPORTUNITIES": {
+    "MODULE_TITLE": "Gestion des Opportunités",
+    "FILTERS": {
+      "TITLE": "Filtres",
+      "SEARCH_PLACEHOLDER": "Rechercher des opportunités...",
+      "STATUS_ALL": "Tous les statuts",
+      "STATUS_OPEN": "Ouvert",
+      "STATUS_WON": "Gagné",
+      "STATUS_LOST": "Perdu",
+      "APPLY_BUTTON": "Appliquer"
+    },
+    "ACTIONS": {
+      "TITLE": "Actions",
+      "EXPORT_CSV": "Exporter en CSV",
+      "EXPORT_PDF": "Exporter en PDF"
+    },
+    "NOTIFICATIONS": {
+      "TITLE": "Notifications",
+      "SAMPLE_NOTIFICATION": "Exemple de Notification : L'opportunité XYZ a été mise à jour."
+    },
+    "LIST": {
+      "TITLE": "Liste des Opportunités",
+      "EMPTY_MESSAGE": "Aucune opportunité à afficher pour le moment. Commencez par en créer une !"
+    }
+  },
+  "ANALYSIS": {
+    "MODULE_TITLE": "Analyse de Documents",
+    "UPLOAD": {
+      "TITLE": "Télécharger le Document pour Analyse",
+      "SUPPORTED_FORMATS_LABEL": "Formats supportés",
+      "UPLOAD_BUTTON": "Télécharger",
+      "SELECTED_FILE_LABEL": "Fichier sélectionné"
+    },
+    "ERROR": {
+      "TITLE": "Erreur d'Analyse",
+      "SAMPLE_MESSAGE": "Une erreur s'est produite lors de l'analyse du document. Veuillez réessayer.",
+      "RETRY_BUTTON": "Réessayer l'Analyse"
+    },
+    "RESULTS": {
+      "TITLE": "Résultats de l'Analyse",
+      "EMPTY_MESSAGE": "Téléchargez un document pour voir les résultats de l'analyse ici."
+    }
+  },
+  "PROPOSALS": {
+    "MODULE_TITLE": "Rédaction de Propositions",
+    "EDITOR": {
+      "TITLE": "Contenu de la Proposition",
+      "PLACEHOLDER": "Commencez à rédiger votre proposition ici..."
+    },
+    "SECTIONS": {
+      "TITLE": "Sections de la Proposition",
+      "PLACEHOLDER_TEXT": "Gérer la structure et les sections de la proposition.",
+      "MANAGE_BUTTON": "Gérer les Sections"
+    },
+    "CONTENT_LIBRARY": {
+      "TITLE": "Bibliothèque de Contenu (Sections Réutilisables)",
+      "SEARCH_PLACEHOLDER": "Rechercher dans la bibliothèque...",
+      "NO_ITEMS": "Aucun élément trouvé ou correspondant à votre recherche.",
+      "INSERT_BUTTON": "Insérer le Contenu Sélectionné",
+      "ITEM_INSERTED_ALERT": "'{{title}}' inséré dans la proposition."
+    },
+    "VERSION_CONTROL": {
+      "TITLE": "Contrôle de Version",
+      "SAVE_BUTTON": "Enregistrer Nouvelle Version",
+      "COMPARE_BUTTON": "Comparer Sélection",
+      "HISTORY_TITLE": "Historique des Versions",
+      "VERSION_PREFIX": "V",
+      "NO_VERSIONS": "Aucune version enregistrée.",
+      "DIFF_TITLE": "Comparaison / Vue Diff",
+      "SAVE_COMMENT_PROMPT": "Entrez un court commentaire pour cette version (optionnel) :",
+      "VERSION_SAVED_ALERT": "Version {{id}} enregistrée.",
+      "SELECT_TWO_VERSIONS_ALERT": "Veuillez sélectionner exactement deux versions à comparer."
+    },
+    "EXPORT": {
+      "TITLE": "Exporter la Proposition",
+      "EXPORT_PDF_BUTTON": "Exporter en PDF",
+      "EXPORT_WORD_BUTTON": "Exporter en Word (.docx)",
+      "EXPORTING_PDF_ALERT": "Préparation de l'export PDF pour '{{currentProposalTitle}}'. (Action simulée)",
+      "EXPORTING_WORD_ALERT": "Préparation de l'export Word (.docx) pour '{{currentProposalTitle}}'. (Action simulée)"
+    }
+  },
+  "SUBMISSIONS": {
+    "MODULE_TITLE": "Suivi des Soumissions",
+    "TRACKING": {
+      "TITLE": "Suivre le Statut de la Soumission",
+      "SUBMISSION_ID_PLACEHOLDER": "ID / Nom de la Soumission",
+      "STATUS_SELECT_PLACEHOLDER": "Sélectionner le Statut...",
+      "STATUS_DRAFT": "Brouillon",
+      "STATUS_SUBMITTED": "Soumis",
+      "STATUS_UNDER_REVIEW": "En Cours d'Examen",
+      "STATUS_AWARDED": "Attribué",
+      "STATUS_REJECTED": "Rejeté",
+      "NOTES_PLACEHOLDER": "Notes...",
+      "SAVE_BUTTON": "Enregistrer le Statut"
+    },
+    "LIST": {
+      "TITLE": "Aperçu des Soumissions",
+      "EMPTY_MESSAGE": "Aucune soumission suivie pour le moment."
+    },
+    "DOCUMENTS": {
+      "TITLE": "Documents de Soumission",
+      "PLACEHOLDER_TEXT": "Gérer les documents relatifs à cette soumission (ex: proposition finale, lettre d'attribution).",
+      "UPLOAD_BUTTON": "Télécharger les Documents"
+    }
+  },
+  "KNOWLEDGE_HUB": {
+    "MODULE_TITLE": "Centre de Connaissances",
+    "WELCOME_MESSAGE": "Bienvenue dans l'espace centralisé pour toutes vos ressources de connaissances et outils de prompting IA !",
+    "PROMPT_MANAGEMENT": {
+        "TITLE": "Gestion des Prompts",
+        "DESCRIPTION": "Gérez, suivez et collaborez sur les prompts IA à travers l'entreprise.",
+        "ADD_PROMPT_TITLE": "Ajouter un Nouveau Prompt",
+        "EDIT_PROMPT_TITLE": "Modifier le Prompt",
+        "FIELD_TITLE": "Titre",
+        "FIELD_CATEGORY": "Catégorie",
+        "FIELD_TEXT": "Texte du Prompt",
+        "FIELD_TAGS": "Tags (séparés par virgule)",
+        "TAGS_PLACEHOLDER": "ex: marketing, courriel, résumé",
+        "ADD_BUTTON": "Ajouter Prompt",
+        "SAVE_CHANGES_BUTTON": "Enregistrer Modifications",
+        "CANCEL_BUTTON": "Annuler",
+        "LIST_TITLE": "Prompts Enregistrés",
+        "EDIT_BUTTON": "Modifier",
+        "DELETE_BUTTON": "Supprimer",
+        "NO_PROMPTS": "Aucun prompt enregistré. Ajoutez-en un ci-dessus !",
+        "TAGS_LABEL": "Tags",
+        "CREATED_AT": "Créé le",
+        "UPDATED_AT": "Mis à jour le",
+        "VALIDATION_TITLE_REQUIRED": "Le titre est requis.",
+        "VALIDATION_CATEGORY_REQUIRED": "La catégorie est requise.",
+        "VALIDATION_TEXT_REQUIRED": "Le texte du prompt est requis.",
+        "VALIDATION_ERROR_MISSING_FIELDS": "Veuillez remplir tous les champs obligatoires (Titre, Catégorie, Texte).",
+        "CONFIRM_DELETE_PROMPT": "Êtes-vous sûr de vouloir supprimer ce prompt ?"
+    },
+    "KNOWLEDGE_ASSETS": {
+        "TITLE": "Ressources de Connaissances",
+        "DESCRIPTION": "Accédez et gérez la base de connaissances de votre organisation."
+    }
+  },
+  "MODULES": {}
+}

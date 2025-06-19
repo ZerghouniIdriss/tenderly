@@ -1,0 +1,332 @@
+// Styles for ProposalsComponent
+h2 {
+  color: purple; // Example style for Proposals
+  margin-bottom: 15px;
+}
+
+hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 0;
+  border-top: 1px solid #eee;
+}
+
+.proposal-editor-container {
+  margin-bottom: 25px;
+  padding: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+
+  h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #333;
+  }
+
+  quill-editor {
+    height: 350px; // Set a decent default height
+    display: block; // Ensures proper layout and sizing
+    background-color: #fff; // Editor background
+  }
+}
+
+.proposal-tools {
+  display: flex;
+  flex-wrap: wrap; // Allow wrapping on smaller screens
+  gap: 20px; // Space between the sections
+
+  .proposal-sections,
+  .proposal-content-library { // Renamed from .proposal-templates
+    flex: 1; // Each section takes equal width
+    min-width: 250px; // Minimum width before wrapping
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+
+    h4 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    p {
+      font-size: 0.9em;
+      color: #666;
+      margin-bottom: 15px;
+    }
+
+    button {
+      padding: 10px 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 0.95em;
+      cursor: pointer;
+      background-color: #007bff;
+      color: white;
+      transition: background-color 0.2s ease;
+
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+  }
+}
+
+/* Export Actions Styles */
+.proposal-export-actions {
+  margin-top: 30px;
+  padding: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+
+  h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #333;
+  }
+
+  button {
+    margin-right: 10px;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.95em;
+    cursor: pointer;
+    color: white;
+    transition: background-color 0.2s ease;
+
+    &:nth-child(2) { // PDF button
+      background-color: #dc3545; // Red
+      &:hover {
+        background-color: #c82333;
+      }
+    }
+    &:nth-child(3) { // Word button
+      background-color: #17a2b8; // Teal/Info
+      &:hover {
+        background-color: #138496;
+      }
+    }
+  }
+}
+
+// Optional: For displaying raw HTML output for debugging
+// .ql-output {
+//   margin-top: 20px;
+//   padding: 10px;
+//   border: 1px dashed #ccc;
+//   background-color: #fdfdfd;
+//   white-space: pre-wrap; // So it respects newlines from editor
+// }
+
+/* Content Library Styles (repurposed from .proposal-templates) */
+.proposal-content-library { // Ensure this matches the class in HTML
+  h4 { // If title is h4 as in previous .proposal-templates
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  p { // For placeholder text if any
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 15px;
+  }
+  button { // For browse/insert buttons
+      padding: 10px 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 0.95em;
+      cursor: pointer;
+      background-color: #007bff;
+      color: white;
+      transition: background-color 0.2s ease;
+
+      &:hover {
+        background-color: #0056b3;
+      }
+  }
+
+  .library-search input {
+    width: 100%;
+    box-sizing: border-box; // Ensure padding doesn't make it overflow
+    padding: 10px; // Increased padding
+    margin-bottom: 15px; // Increased margin
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.95em;
+  }
+
+  .library-list {
+    list-style-type: none;
+    padding-left: 0;
+    max-height: 280px; // Increased height
+    overflow-y: auto;
+    border: 1px solid #ddd; // Consistent border
+    border-radius: 4px;
+    margin-bottom: 15px;
+
+    li {
+      padding: 12px 15px; // Increased padding
+      border-bottom: 1px solid #eee;
+      cursor: pointer;
+      transition: background-color 0.15s ease;
+
+      &:hover {
+        background-color: #f0f0f0; // Lighter hover
+      }
+      &.selected {
+        background-color: #007bff;
+        color: white;
+        strong { color: white; } // Ensure strong text is also white
+        p { color: #d4eaff; } // Lighter preview text for selected
+        &:hover {
+            background-color: #0069d9;
+        }
+      }
+      &:last-child {
+        border-bottom: none;
+      }
+      strong {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 600; // Bolder title
+      }
+      p {
+        font-size: 0.85em; // Slightly smaller preview
+        color: #555;
+        margin: 0;
+      }
+    }
+     p { // For "No items" message
+        color: #666;
+        font-style: italic;
+        padding: 10px; // Padding for the message itself
+    }
+  }
+  .library-actions {
+    margin-top: 10px; // Space above the insert button
+    button {
+       padding: 10px 15px; // Consistent button padding
+       // Uses styles from .proposal-content-library button
+    }
+  }
+}
+
+
+/* Version Control Styles */
+.proposal-version-control {
+  margin-top: 30px;
+  padding: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+
+  h3, h4 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #333;
+  }
+
+  .version-actions {
+    margin-bottom: 20px;
+    button {
+      margin-right: 10px;
+      padding: 10px 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 0.95em;
+      cursor: pointer;
+      background-color: #5cb85c; // Green for save
+      color: white;
+      transition: background-color 0.2s ease;
+
+      &:hover {
+        background-color: #4cae4c;
+      }
+
+      &[disabled] {
+        background-color: #ccc;
+        cursor: not-allowed;
+        &:hover {
+          background-color: #ccc;
+        }
+      }
+    }
+    button + button { // Style for compare button specifically
+        background-color: #f0ad4e; // Orange for compare
+         &:hover {
+            background-color: #ec971f;
+        }
+         &[disabled] {
+            background-color: #ccc;
+             &:hover {
+                background-color: #ccc;
+            }
+        }
+    }
+  }
+
+  .version-history {
+    margin-bottom: 20px;
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+      max-height: 250px; // Increased height
+      overflow-y: auto;
+      border: 1px solid #ddd;
+      border-radius: 4px; // Rounded corners for the list itself
+    }
+    li {
+      padding: 10px 12px; // Increased padding
+      border-bottom: 1px solid #eee;
+      cursor: pointer;
+      font-size: 0.9em; // Slightly smaller font for list items
+      transition: background-color 0.15s ease;
+
+      &:hover {
+        background-color: #f5f5f5;
+      }
+      &.selected {
+        background-color: #007bff;
+        color: white;
+        font-weight: bold;
+        &:hover {
+            background-color: #0069d9;
+        }
+      }
+      &:last-child {
+        border-bottom: none;
+      }
+      span { // For comments
+        font-style: italic;
+        color: #555; // Default color for comment
+      }
+      &.selected span { // Comment color when item is selected
+        color: #e0e0e0;
+      }
+    }
+    p { // For "No versions" message
+        color: #666;
+        font-style: italic;
+    }
+  }
+
+  .version-diff-display {
+    pre {
+      background-color: #fff; // White background for diff
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      max-height: 350px; // Increased height
+      overflow-y: auto;
+      white-space: pre-wrap;
+      word-break: break-word; // Changed from break-all
+      font-family: monospace; // Standard for diffs
+      font-size: 0.9em;
+      line-height: 1.4;
+    }
+  }
+}

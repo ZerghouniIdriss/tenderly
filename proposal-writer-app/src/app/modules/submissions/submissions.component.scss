@@ -1,0 +1,109 @@
+// Styles for SubmissionsComponent
+h2 {
+  color: sienna; // Example style for Submissions
+  margin-bottom: 15px;
+}
+
+hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 0;
+  border-top: 1px solid #eee;
+}
+
+.submission-tracking,
+.submission-list,
+.submission-documents {
+  margin-bottom: 25px;
+  padding: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+
+  h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #333;
+  }
+}
+
+.submission-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; // Increased gap for better spacing
+
+  input[type="text"],
+  select,
+  textarea,
+  input[type="date"],
+  button {
+    padding: 10px 12px; // Increased padding
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.95em; // Slightly larger font
+  }
+
+  textarea {
+    min-height: 100px; // Increased min-height
+    resize: vertical; // Allow vertical resizing
+  }
+
+  button {
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    align-self: flex-start; // Button doesn't stretch full width
+  }
+
+  button:hover {
+    background-color: #0056b3;
+  }
+}
+
+.submission-documents input[type="file"] {
+  display: block; // Make file input take its own line
+  margin-bottom: 10px;
+}
+
+.submission-documents button {
+   padding: 10px 15px;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+   font-size: 0.95em;
+   cursor: pointer;
+   background-color: #28a745; // Green for upload actions
+   color: white;
+   transition: background-color 0.2s ease;
+}
+
+.submission-documents button:hover {
+  background-color: #218838;
+}
+
+.submission-list p {
+  color: #666;
+  font-style: italic;
+}
+
+.selected-documents-list {
+  margin-top: 15px;
+  font-size: 0.9em;
+
+  h4 {
+    font-size: 1em;
+    color: #333;
+    margin-bottom: 8px;
+  }
+
+  ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin: 0;
+  }
+
+  li {
+    color: #555;
+    margin-bottom: 4px;
+  }
+}

@@ -1,0 +1,26 @@
+<header>
+  <h1>{{ 'APP_TITLE' | translate }}</h1>
+  <div class="header-controls">
+    <div class="language-switcher">
+      <button (click)="switchLanguage('en')" [class.active]="translate.currentLang === 'en'">English</button>
+      <button (click)="switchLanguage('fr')" [class.active]="translate.currentLang === 'fr'">Français</button>
+    </div>
+  </div>
+  <nav>
+    <a routerLink="/dashboard">{{ 'NAV.DASHBOARD' | translate }}</a>
+    <!-- Dynamically generated module links -->
+    <!-- Module names are NOT translated via ngx-translate in this iteration -->
+    <ng-container *ngFor="let module of currentModules">
+      <a *ngIf="module.active && module.routePath" [routerLink]="['/', module.routePath]">{{ module.name }}</a>
+    </ng-container>
+    <a routerLink="/settings">{{ 'NAV.SETTINGS' | translate }}</a>
+  </nav>
+</header>
+
+<main>
+  <router-outlet></router-outlet>
+</main>
+
+<footer>
+  <p>© 2023 Enterprise Solutions</p>
+</footer>

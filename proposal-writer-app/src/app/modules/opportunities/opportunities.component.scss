@@ -1,0 +1,72 @@
+// Add any module-specific placeholder styles if needed
+h2 {
+  color: navy; // Example style for Opportunities
+  margin-bottom: 15px;
+}
+
+hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 0;
+  border-top: 1px solid #eee;
+}
+
+.opportunities-filters,
+.opportunities-actions,
+.opportunities-notifications,
+.opportunity-list {
+  margin-bottom: 25px;
+  padding: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+
+  h3, h4 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #333;
+  }
+}
+
+.opportunities-filters input[type="text"],
+.opportunities-filters select,
+.opportunities-filters button,
+.opportunities-actions button {
+  margin-right: 10px;
+  margin-bottom: 10px; /* For wrapping on small screens */
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.95em;
+}
+
+.opportunities-filters input[type="text"] {
+  min-width: 200px; /* Give search input some space */
+}
+
+.opportunities-filters button,
+.opportunities-actions button {
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.opportunities-filters button:hover,
+.opportunities-actions button:hover {
+  background-color: #0056b3;
+}
+
+.notification-item {
+  padding: 12px;
+  background-color: #e9ecef; /* Light grey background for notifications */
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  margin-top: 10px;
+  font-size: 0.9em;
+}
+
+.opportunity-list p {
+  color: #666;
+  font-style: italic;
+}

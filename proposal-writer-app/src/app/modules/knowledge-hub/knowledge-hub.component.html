@@ -1,0 +1,85 @@
+<div *ngIf="moduleInfo">
+  <h2>{{ 'KNOWLEDGE_HUB.MODULE_TITLE' | translate }}</h2>
+  <p *ngIf="moduleInfo">ID: {{ moduleInfo.id }} | Status: {{ moduleInfo.active ? ('DASHBOARD.MODULE_STATUS_ACTIVE' | translate) : ('DASHBOARD.MODULE_STATUS_INACTIVE' | translate) }}</p>
+</div>
+<div *ngIf="!moduleInfo"> <!-- Fallback if moduleInfo is somehow not loaded -->
+  <h2>{{ 'KNOWLEDGE_HUB.MODULE_TITLE' | translate }}</h2>
+</div>
+
+<p>{{ 'KNOWLEDGE_HUB.WELCOME_MESSAGE' | translate }}</p>
+
+<div class="hub-sections">
+    <div class="hub-section prompt-management">
+        <h3>{{ 'KNOWLEDGE_HUB.PROMPT_MANAGEMENT.TITLE' | translate }}</h3>
+        <p>{{ 'KNOWLEDGE_HUB.PROMPT_MANAGEMENT.DESCRIPTION' | translate }}</p>
+
+        <div>
+          <!-- Form for Adding/Editing Prompts -->
+          <h4>{{ (editingPrompt ? 'KNOWLEDGE_HUB.PROMPT_MANAGEMENT.EDIT_PROMPT_TITLE' : 'KNOWLEDGE_HUB.PROMPT_MANAGEMENT.ADD_PROMPT_TITLE') | translate }}</h4>
+          <form (ngSubmit)="editingPrompt ? updatePrompt() : addPrompt()" #promptForm="ngForm" class="prompt-form">
+            <div>
+              <label for="promptTitle">{{ 'KNOWLEDGE_HUB.PROMPT_MANAGEMENT.FIELD_TITLE' | translate }}:</label>
+              <input type="text" id="promptTitle" name="promptTitle"
+                     [(ngModel)]="editingPrompt ? editingPrompt.title : newPrompt.title" required #titleField="ngModel">
+              <div *ngIf="titleField.invalid && (titleField.dirty || titleField.touched)" class="validation-error">
+                {{ 'KNOWLEDGE_HUB.PROMPT_MANAGEMENT.VALIDATION_TITLE_REQUIRED' | translate }}
+              </div>
+            </div>
+            <div>
+              <label for="promptCategory">{{ 'KNOWLEDGE_HUB.PROMPT_MANAGEMENT.FIELD_CATEGORY' | translate }}:</label>
+              <select id="promptCategory" name="promptCategory"
+                      [(ngModel)]="editingPrompt ? editingPrompt.category : newPrompt.category" required #categoryField="ngModel">
+                <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
+              </select>
+              <div *ngIf="categoryField.invalid && (categoryField.dirty || categoryField.touched)" class="validation-error">
+                {{ 'KNOWLEDGE_HUB.PROMPT_MANAGEMENT.VALIDATION_CATEGORY_REQUIRED' | translate }}
+              </div>
+            </div>
+            <div>
+              <label for="promptText">{{ 'KNOWLEDGE_HUB.PROMPT_MANAGEMENT.FIELD_TEXT' | translate }}:</label>
+              <textarea id="promptText" name="promptText" rows="5"
+                        [(ngModel)]="editingPrompt ? editingPrompt.text : newPrompt.text" required #textField="ngModel"></textarea>
+              <div *ngIf="textField.invalid && (textField.dirty || textField.touched)" class="validation-error">
+                {{ 'KNOWLEDGE_HUB.PROMPT_MANAGEMENT.VALIDATION_TEXT_REQUIRED' | translate }}
+              </div>
+            </div>
+            <div>
+              <label for="promptTags">{{ 'KNOWLEDGE_HUB.PROMPT_MANAGEMENT.FIELD_TAGS' | translate }}:</label>
+              <input type="text" id="promptTags" name="promptTags"
+                     [placeholder]="'KNOWLEDGE_HUB.PROMPT_MANAGEMENT.TAGS_PLACEHOLDER' | translate"
+                     [ngModel]="editingPrompt ? (editingPrompt.tags?.join(', ')) : (newPrompt.tags?.join(', '))"
+                     (ngModelChange)="editingPrompt ? (editingPrompt.tags = $event.split(',').map(t => t.trim())) : (newPrompt.tags = $event.split(',').map(t => t.trim()))">
+            </div>
+            <div class="form-actions">
+                <button type="submit" [disabled]="promptForm.invalid">
+                {{ (editingPrompt ? 'KNOWLEDGE_HUB.PROMPT_MANAGEMENT.SAVE_CHANGES_BUTTON' : 'KNOWLEDGE_HUB.PROMPT_MANAGEMENT.ADD_BUTTON') | translate }}
+                </button>
+                <button type="button" *ngIf="editingPrompt" (click)="cancelEdit()">{{ 'KNOWLEDGE_HUB.PROMPT_MANAGEMENT.CANCEL_BUTTON' | translate }}</button>
+            </div>
+          </form>
+
+          <!-- List of Prompts -->
+          <h4>{{ 'KNOWLEDGE_HUB.PROMPT_MANAGEMENT.LIST_TITLE' | translate }}</h4>
+          <ul class="prompt-list">
+            <li *ngFor="let prompt of prompts" [class.editing]="prompt === editingPrompt">
+              <h5>{{ prompt.title }} <span class="category-badge">{{ prompt.category }}</span></h5>
+              <p class="prompt-text-display">{{ prompt.text }}</p>
+              <div *ngIf="prompt.tags && prompt.tags.length > 0" class="tags-display">
+                <strong>{{ 'KNOWLEDGE_HUB.PROMPT_MANAGEMENT.TAGS_LABEL' | translate }}:</strong> {{ prompt.tags.join(', ') }}
+              </div>
+              <small>{{ 'KNOWLEDGE_HUB.PROMPT_MANAGEMENT.CREATED_AT' | translate }}: {{ prompt.createdAt | date:'short' }} | {{ 'KNOWLEDGE_HUB.PROMPT_MANAGEMENT.UPDATED_AT' | translate }}: {{ prompt.updatedAt | date:'short' }}</small>
+              <div class="prompt-actions">
+                <button (click)="selectPromptForEdit(prompt)">{{ 'KNOWLEDGE_HUB.PROMPT_MANAGEMENT.EDIT_BUTTON' | translate }}</button>
+                <button (click)="deletePrompt(prompt.id)">{{ 'KNOWLEDGE_HUB.PROMPT_MANAGEMENT.DELETE_BUTTON' | translate }}</button>
+              </div>
+            </li>
+          </ul>
+          <p *ngIf="prompts.length === 0">{{ 'KNOWLEDGE_HUB.PROMPT_MANAGEMENT.NO_PROMPTS' | translate }}</p>
+        </div>
+    </div>
+    <div class="hub-section knowledge-assets">
+        <h3>{{ 'KNOWLEDGE_HUB.KNOWLEDGE_ASSETS.TITLE' | translate }}</h3>
+        <p>{{ 'KNOWLEDGE_HUB.KNOWLEDGE_ASSETS.DESCRIPTION' | translate }}</p>
+        <!-- Placeholder for knowledge asset UI (P2.7) -->
+    </div>
+</div>

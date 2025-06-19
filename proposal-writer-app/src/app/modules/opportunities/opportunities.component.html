@@ -1,0 +1,37 @@
+<!-- Title for the module page itself - moduleInfo.name is not translated by ngx-translate here -->
+<h2>{{ moduleInfo?.name || ('OPPORTUNITIES.MODULE_TITLE' | translate) }}</h2>
+<p *ngIf="moduleInfo">ID: {{ moduleInfo.id }} | Status: {{ moduleInfo.active ? ('DASHBOARD.MODULE_STATUS_ACTIVE' | translate) : ('DASHBOARD.MODULE_STATUS_INACTIVE' | translate) }}</p>
+<p *ngIf="!moduleInfo && moduleId">Module '{{ moduleId }}' is not registered or found in ModuleLoaderService.</p>
+
+<hr>
+
+<div class="opportunities-filters">
+  <h3>{{ 'OPPORTUNITIES.FILTERS.TITLE' | translate }}</h3>
+  <input type="text" [placeholder]="'OPPORTUNITIES.FILTERS.SEARCH_PLACEHOLDER' | translate">
+  <select>
+    <option value="">{{ 'OPPORTUNITIES.FILTERS.STATUS_ALL' | translate }}</option>
+    <option value="open">{{ 'OPPORTUNITIES.FILTERS.STATUS_OPEN' | translate }}</option>
+    <option value="won">{{ 'OPPORTUNITIES.FILTERS.STATUS_WON' | translate }}</option>
+    <option value="lost">{{ 'OPPORTUNITIES.FILTERS.STATUS_LOST' | translate }}</option>
+  </select>
+  <button>{{ 'OPPORTUNITIES.FILTERS.APPLY_BUTTON' | translate }}</button>
+</div>
+
+<div class="opportunities-actions">
+  <h3>{{ 'OPPORTUNITIES.ACTIONS.TITLE' | translate }}</h3>
+  <button>{{ 'OPPORTUNITIES.ACTIONS.EXPORT_CSV' | translate }}</button>
+  <button>{{ 'OPPORTUNITIES.ACTIONS.EXPORT_PDF' | translate }}</button>
+</div>
+
+<div class="opportunity-list">
+    <h3>{{ 'OPPORTUNITIES.LIST.TITLE' | translate }}</h3>
+    <p>{{ 'OPPORTUNITIES.LIST.EMPTY_MESSAGE' | translate }}</p>
+    <!-- Actual list items would go here later -->
+</div>
+
+<div class="opportunities-notifications">
+  <h4>{{ 'OPPORTUNITIES.NOTIFICATIONS.TITLE' | translate }}</h4>
+  <div class="notification-item">
+    <p>{{ 'OPPORTUNITIES.NOTIFICATIONS.SAMPLE_NOTIFICATION' | translate }}</p>
+  </div>
+</div>

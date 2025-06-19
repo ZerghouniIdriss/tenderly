@@ -1,0 +1,85 @@
+// Styles for AnalysisComponent
+h2 {
+  color: darkgreen; // Example style for Analysis
+  margin-bottom: 15px;
+}
+
+hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 0;
+  border-top: 1px solid #eee;
+}
+
+.analysis-upload,
+.analysis-error,
+.analysis-results {
+  margin-bottom: 25px;
+  padding: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+
+  h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #333;
+  }
+}
+
+.analysis-upload input[type="file"] {
+  margin-right: 10px;
+  margin-bottom: 10px; /* For wrapping */
+}
+
+.analysis-upload button,
+.analysis-error button {
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.95em;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  transition: background-color 0.2s ease;
+}
+
+.analysis-upload button:hover,
+.analysis-error button:hover {
+  background-color: #0056b3;
+}
+
+.analysis-upload button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.analysis-upload p {
+  margin-top: 10px;
+  font-size: 0.9em;
+  color: #555;
+}
+
+.analysis-error {
+  background-color: #f8d7da; // Light red for error section
+  border-color: #f5c6cb;
+  color: #721c24; // Dark red text for error section
+
+  h3 {
+    color: #721c24;
+  }
+
+  button {
+    background-color: #dc3545; // Red button for error context
+    border-color: #dc3545;
+  }
+  button:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+  }
+}
+
+.analysis-results p {
+  color: #666;
+  font-style: italic;
+}

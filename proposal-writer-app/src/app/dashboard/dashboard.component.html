@@ -1,0 +1,21 @@
+<h2>{{ 'DASHBOARD.TITLE' | translate }}</h2>
+<div class="dashboard-grid" *ngIf="modulesToDisplay.length > 0; else noModules">
+  <div *ngFor="let module of modulesToDisplay"
+       class="dashboard-block"
+       [class.inactive]="!module.active"
+       (click)="module.active && module.routePath ? navigateToModule(module) : null"
+       [style.cursor]="module.active && module.routePath ? 'pointer' : 'default'"
+       [title]="(module.active ? ('DASHBOARD.MODULE_CLICK_TO_OPEN' | translate) : (module.name + ' - ' + ('DASHBOARD.MODULE_STATUS_INACTIVE' | translate)))">
+    <!-- Module names are NOT translated via ngx-translate in this iteration -->
+    <h3>{{ module.name }}</h3>
+    <p class="module-status">{{ 'DASHBOARD.MODULE_STATUS_' + (module.active ? 'ACTIVE' : 'INACTIVE') | translate }}</p>
+    <p class="module-id">(ID: {{ module.id }})</p>
+    <button *ngIf="module.active && module.routePath" (click)="navigateToModule(module)">
+      {{ 'DASHBOARD.MODULE_CLICK_TO_OPEN' | translate }}
+    </button>
+    <p *ngIf="!module.active" class="inactive-prompt">{{ 'DASHBOARD.MODULE_INACTIVE_PROMPT' | translate }}</p>
+  </div>
+</div>
+<ng-template #noModules>
+  <p>{{ 'DASHBOARD.NO_MODULES_DISPLAY' | translate }}</p>
+</ng-template>

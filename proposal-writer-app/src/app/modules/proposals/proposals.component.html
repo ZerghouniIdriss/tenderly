@@ -1,0 +1,91 @@
+<h2>{{ moduleInfo?.name || ('PROPOSALS.MODULE_TITLE' | translate) }}</h2>
+<p *ngIf="moduleInfo">ID: {{ moduleInfo.id }} | Status: {{ moduleInfo.active ? ('DASHBOARD.MODULE_STATUS_ACTIVE' | translate) : ('DASHBOARD.MODULE_STATUS_INACTIVE' | translate) }}</p>
+<p *ngIf="!moduleInfo && moduleId">Module '{{ moduleId }}' is not registered or found in ModuleLoaderService.</p>
+
+<hr>
+
+<div class="proposal-editor-container">
+  <h3>{{ 'PROPOSALS.EDITOR.TITLE' | translate }}</h3>
+  <quill-editor
+    [(ngModel)]="proposalContent"
+    [modules]="quillEditorModules"
+    [customModules]="customQuillModules"
+    (contentChanged)="onContentChanged($event)"
+    (onEditorCreated)="onEditorCreated($event)"
+    placeholder="{{ 'PROPOSALS.EDITOR.PLACEHOLDER' | translate }}">
+  </quill-editor>
+</div>
+
+<!-- Debug: Display HTML content -->
+<!-- <div class="ql-output" [innerHTML]="proposalContent | safeHtml"></div> -->
+<!-- For [innerHTML] with dynamic content, a SafeHtml pipe would be needed -->
+
+<div class="proposal-tools">
+  <div class="proposal-sections">
+    <h4>{{ 'PROPOSALS.SECTIONS.TITLE' | translate }}</h4>
+    <p>{{ 'PROPOSALS.SECTIONS.PLACEHOLDER_TEXT' | translate }}</p>
+    <button>{{ 'PROPOSALS.SECTIONS.MANAGE_BUTTON' | translate }}</button>
+  </div>
+
+  <!-- Repurposed from .proposal-templates to .proposal-content-library -->
+  <div class="proposal-content-library">
+    <h3>{{ 'PROPOSALS.CONTENT_LIBRARY.TITLE' | translate }}</h3>
+
+    <div class="library-search">
+      <input type="text"
+             [placeholder]="'PROPOSALS.CONTENT_LIBRARY.SEARCH_PLACEHOLDER' | translate"
+             (input)="filterContentLibrary($event)">
+    </div>
+
+    <ul class="library-list">
+      <li *ngFor="let item of filteredLibraryItems"
+          (click)="selectLibraryItem(item)"
+          [class.selected]="item === selectedLibraryItem">
+        <strong>{{ item.title }}</strong>
+        <p>{{ item.preview }}</p>
+      </li>
+    </ul>
+    <p *ngIf="filteredLibraryItems.length === 0">{{ 'PROPOSALS.CONTENT_LIBRARY.NO_ITEMS' | translate }}</p>
+
+    <div class="library-actions" *ngIf="selectedLibraryItem">
+      <button (click)="insertLibraryItem()">{{ 'PROPOSALS.CONTENT_LIBRARY.INSERT_BUTTON' | translate }}</button>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<div class="proposal-version-control">
+  <h3>{{ 'PROPOSALS.VERSION_CONTROL.TITLE' | translate }}</h3>
+
+  <div class="version-actions">
+    <button (click)="saveNewVersion()">{{ 'PROPOSALS.VERSION_CONTROL.SAVE_BUTTON' | translate }}</button>
+    <button (click)="compareVersions()" [disabled]="selectedVersions.length < 2">{{ 'PROPOSALS.VERSION_CONTROL.COMPARE_BUTTON' | translate }}</button>
+  </div>
+
+  <div class="version-history">
+    <h4>{{ 'PROPOSALS.VERSION_CONTROL.HISTORY_TITLE' | translate }}</h4>
+    <ul>
+      <li *ngFor="let version of mockVersions"
+          (click)="selectVersion(version)"
+          [class.selected]="isSelected(version)">
+        {{ 'PROPOSALS.VERSION_CONTROL.VERSION_PREFIX' | translate }}{{ version.id }} - {{ version.timestamp | date:'short' }} ({{ version.author }})
+        <span *ngIf="version.comment"> - "{{version.comment}}"</span>
+      </li>
+    </ul>
+    <p *ngIf="mockVersions.length === 0">{{ 'PROPOSALS.VERSION_CONTROL.NO_VERSIONS' | translate }}</p>
+  </div>
+
+  <div class="version-diff-display" *ngIf="diffContent">
+    <h4>{{ 'PROPOSALS.VERSION_CONTROL.DIFF_TITLE' | translate }}</h4>
+    <pre>{{ diffContent }}</pre>
+  </div>
+</div>
+
+<hr>
+
+<div class="proposal-export-actions">
+  <h3>{{ 'PROPOSALS.EXPORT.TITLE' | translate }}</h3>
+  <button (click)="exportProposal('pdf')">{{ 'PROPOSALS.EXPORT.EXPORT_PDF_BUTTON' | translate }}</button>
+  <button (click)="exportProposal('word')">{{ 'PROPOSALS.EXPORT.EXPORT_WORD_BUTTON' | translate }}</button>
+</div>
